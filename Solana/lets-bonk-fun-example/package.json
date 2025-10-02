@@ -1,0 +1,25 @@
+{
+  "name": "grpc-js-example",
+  "version": "1.0.0",
+  "description": "Sample gRPC client for CoreCast stream",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "generate": "echo 'Proto files are now loaded from bitquery-corecast-proto npm package'"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.0",
+    "bitquery-corecast-proto": "^1.0.2",
+    "bs58": "^5.0.0",
+    "grpc-web": "^1.4.2",
+    "js-yaml": "^4.1.0"
+  },
+  "keywords": [
+    "grpc",
+    "streaming",
+    "solana",
+    "corecast"
+  ],
+  "author": "",
+  "license": "MIT"
+}

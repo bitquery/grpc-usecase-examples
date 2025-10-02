@@ -1,0 +1,96 @@
+server:
+  address: "corecast.bitquery.io"
+  authorization: "ory_at_" # Get auth token at https://account.bitquery.io/user/api_v2/access_tokens
+  insecure: false
+
+stream:
+  type: "dex_trades"
+
+# Trade filtering option
+# Options: "alltrades", "buys", "sells"
+# - alltrades: Show all trades involving the token
+# - buys: Show only trades where the token is being BOUGHT (token is on buy side)
+# - sells: Show only trades where the token is being SOLD (token is on sell side)
+
+# Filter for specific token trades on Pump.fun
+trade_filter: "alltrades"
+filters:
+  programs:
+    - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P" # Pump.fun
+  tokens:
+    - "7CyJ5J3tqRKKJjSWSzASuVJdD2oryAJZfyvbMVJmpump" # Example token
+
+# ============================================================================
+# PUMP.FUN EXAMPLES
+# ============================================================================
+
+# Example 1: Monitor ALL trades for a specific token on Pump.fun
+# trade_filter: "alltrades"
+# filters:
+#   programs:
+#     - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+#   tokens:
+#     - "7CyJ5J3tqRKKJjSWSzASuVJdD2oryAJZfyvbMVJmpump"
+
+# Example 2: Monitor only BUYS for a specific token on Pump.fun
+# trade_filter: "buys"
+# filters:
+#   programs:
+#     - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+#   tokens:
+#     - "7CyJ5J3tqRKKJjSWSzASuVJdD2oryAJZfyvbMVJmpump"
+
+# Example 3: Monitor only SELLS for a specific token on Pump.fun
+# trade_filter: "sells"
+# filters:
+#   programs:
+#     - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+#   tokens:
+#     - "7CyJ5J3tqRKKJjSWSzASuVJdD2oryAJZfyvbMVJmpump"
+
+# Example 4: Monitor multiple tokens on Pump.fun
+# trade_filter: "alltrades"
+# filters:
+#   programs:
+#     - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+#   tokens:
+#     - "7CyJ5J3tqRKKJjSWSzASuVJdD2oryAJZfyvbMVJmpump"
+#     - "H15fwzsYWQiGTQBn23sC2QuByu9zSvaXhaDwwVmkX5m9"
+
+# Example 5: Monitor ALL trades on Pump.fun (no token filter)
+# trade_filter: "alltrades"
+# filters:
+#   programs:
+#     - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+#   # No tokens filter = all tokens
+
+# Example 6: Monitor a specific trader's activity on Pump.fun
+# trade_filter: "alltrades"
+# filters:
+#   programs:
+#     - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+#   traders:
+#     - "YourWalletAddressHere"
+
+# Example 7: Monitor buying activity for a specific trader
+# trade_filter: "buys"
+# filters:
+#   programs:
+#     - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+#   tokens:
+#     - "7CyJ5J3tqRKKJjSWSzASuVJdD2oryAJZfyvbMVJmpump"
+#   traders:
+#     - "YourWalletAddressHere"
+
+# ============================================================================
+# NOTES
+# ============================================================================
+#
+# - Pump.fun Program: 6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P
+# - All Pump.fun tokens trade against SOL
+# - Token mint addresses are unique per token
+# - Use Pump.fun website or Solscan to find token mint addresses
+# - Trades are filtered server-side by program and token
+# - Buy/Sell filtering happens client-side for better control
+#
+# ============================================================================
