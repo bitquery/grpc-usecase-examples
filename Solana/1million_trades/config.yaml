@@ -1,0 +1,13 @@
+server:
+  address: "corecast.bitquery.io"
+  authorization: "ory_at_g" #create token at https://account.bitquery.io/user/api_v2/access_tokens
+  insecure: false
+
+stream:
+  type: "dex_trades"
+  
+filters:
+  programs:
+    - "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P" # pumpfun
+
+
